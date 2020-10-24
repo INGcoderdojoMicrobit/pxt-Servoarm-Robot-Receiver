@@ -1,5 +1,8 @@
  function doDemo() {
 doPrawo(20)
+doLewo(10)
+doGora(10)
+doDol(10)
 }
  
  radio.onReceivedStringDeprecated(function (receivedString) {
@@ -109,9 +112,10 @@ let pos1 = 40
 let pos2 = 120
 let pos3 = 180
 let pauza = 100
+
 function doPrawo(ile:number) {
     for(let i = 0; i < ile; i++) {
-        pos0 += step0
+        pos0 +=5
         pos0 = Math.max(pos0, 0)
         pos0 = Math.min(pos0, 180),
         Servo.Servo(0, pos0)
@@ -119,11 +123,36 @@ function doPrawo(ile:number) {
     }
 }
 
-
-
+function doLewo(ile:number) {
+    for(let i = 0; i < ile; i++) {
+        pos0 -=5
+        pos0 = Math.max(pos0, 0)
+        pos0 = Math.min(pos0, 180),
+        Servo.Servo(0, pos0)
+        basic.pause(pauza)
+    }
+}
+function doGora(ile:number) {
+    for(let i = 0; i < ile; i++) {
+        pos1 +=5
+        pos1 = Math.max(pos1, 40)
+        pos1 = Math.min(pos1, 80),
+        Servo.Servo(1, pos1)
+        basic.pause(pauza)
+    }
+}
+function doDol(ile:number) {
+    for(let i = 0; i < ile; i++) {
+        pos1 -=5
+        pos1 = Math.max(pos1, 40)
+        pos1 = Math.min(pos1, 80),
+        Servo.Servo(1, pos1)
+        basic.pause(pauza)
+    }
+}
 Servo.Servo(0, pos0) //prawo-lewo
-Servo.Servo(1, pos1) //szczeka otworz-zamknij
-Servo.Servo(2, pos2) //gora-dol
+Servo.Servo(1, pos1) //gora-dol
+Servo.Servo(2, pos2) //szczekA
 Servo.Servo(3, pos3) //przod-tyl
 basic.showIcon(IconNames.Heart)
 basic.pause(2000)
