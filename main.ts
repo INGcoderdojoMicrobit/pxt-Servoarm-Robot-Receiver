@@ -1,8 +1,15 @@
  function doDemo() {
-doPrawo(20)
-doLewo(10)
-doGora(10)
-doDol(10)
+doPrawo(26)
+doLewo(26)
+doGora(15)
+doDol(15)
+doPrzod(10)
+doTyl(10)
+doSzczeka_otworz(5)
+doSzczeka_zamknij(5)
+doSzczeka_otworz(5)
+doSzczeka_zamknij(5)
+doPrawo(10)
 }
  
  radio.onReceivedStringDeprecated(function (receivedString) {
@@ -115,7 +122,7 @@ let pauza = 100
 
 function doPrawo(ile:number) {
     for(let i = 0; i < ile; i++) {
-        pos0 +=5
+        pos0 -=5
         pos0 = Math.max(pos0, 0)
         pos0 = Math.min(pos0, 180),
         Servo.Servo(0, pos0)
@@ -125,7 +132,7 @@ function doPrawo(ile:number) {
 
 function doLewo(ile:number) {
     for(let i = 0; i < ile; i++) {
-        pos0 -=5
+        pos0 +=5
         pos0 = Math.max(pos0, 0)
         pos0 = Math.min(pos0, 180),
         Servo.Servo(0, pos0)
@@ -150,10 +157,47 @@ function doDol(ile:number) {
         basic.pause(pauza)
     }
 }
+function doPrzod(ile:number) {
+    for(let i = 0; i < ile; i++) {
+        pos2 +=5
+        pos2 = Math.max(pos2, 120)
+        pos2 = Math.min(pos2, 180),
+        Servo.Servo(2, pos2)
+        basic.pause(pauza)
+    }
+}
+function doTyl(ile:number) {
+    for(let i = 0; i < ile; i++) {
+        pos2 -=5
+        pos2 = Math.max(pos2, 120)
+        pos2 = Math.min(pos2, 180),
+        Servo.Servo(2, pos2)
+        basic.pause(pauza)
+    }
+}
+function doSzczeka_otworz(ile:number) {
+    for(let i = 0; i < ile; i++) {
+        pos3 +=5
+        pos3 = Math.max(pos3, 155)
+        pos3 = Math.min(pos3, 180),
+        Servo.Servo(3, pos3)
+        basic.pause(pauza)
+    }
+}
+function doSzczeka_zamknij(ile:number) {
+    for(let i = 0; i < ile; i++) {
+        pos3 -=5
+        pos3 = Math.max(pos3, 155)
+        pos3 = Math.min(pos3, 180),
+        Servo.Servo(3, pos3)
+        basic.pause(pauza)
+    }
+}
+
 Servo.Servo(0, pos0) //prawo-lewo
 Servo.Servo(1, pos1) //gora-dol
-Servo.Servo(2, pos2) //szczekA
-Servo.Servo(3, pos3) //przod-tyl
+Servo.Servo(2, pos2) //przod-tyl
+Servo.Servo(3, pos3) //szczekA
 basic.showIcon(IconNames.Heart)
 basic.pause(2000)
 basic.clearScreen()
