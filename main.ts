@@ -1,15 +1,24 @@
  function doDemo() {
-doPrawo(26)
-doLewo(26)
-doGora(15)
-doDol(15)
 doPrzod(10)
+basic.pause(150)
+doSzczeka_otworzy(10)
+basic.pause(150)
+doSzczeka_zamknij(10)
+basic.pause(150)
+doTyl(6)
+basic.pause(150)
+doLewo(23)
+basic.pause(150)
+doPrzod(10)
+basic.pause(150)
+doSzczeka_otworzy(10)
+basic.pause(150)
+doSzczeka_zamknij(10)
+basic.pause(150)
 doTyl(10)
-doSzczeka_otworz(5)
-doSzczeka_zamknij(5)
-doSzczeka_otworz(5)
-doSzczeka_zamknij(5)
-doPrawo(10)
+basic.pause(150)
+doPrawo(15)
+
 }
  
  radio.onReceivedStringDeprecated(function (receivedString) {
@@ -55,14 +64,14 @@ doPrawo(10)
             led.plot(4, 4)
         }
         step2 = -5
-    } else if (receivedString == "2") { //szczeka otworz
+    } else if (receivedString == "2") { //szczeka zamknij
         if (debug) {
             led.plot(2, 0)
             led.plot(1, 0)
             led.plot(0, 0)
         }
         step3 = 5
-    } else if (receivedString == "4") { //szczeka zamknij
+    } else if (receivedString == "4") { //szczeka otworz
         if (debug) {
             led.plot(2, 0)
             led.plot(3, 0)
@@ -175,7 +184,7 @@ function doTyl(ile:number) {
         basic.pause(pauza)
     }
 }
-function doSzczeka_otworz(ile:number) {
+function doSzczeka_zamknij(ile:number) {
     for(let i = 0; i < ile; i++) {
         pos3 +=5
         pos3 = Math.max(pos3, 155)
@@ -184,7 +193,7 @@ function doSzczeka_otworz(ile:number) {
         basic.pause(pauza)
     }
 }
-function doSzczeka_zamknij(ile:number) {
+function doSzczeka_otworzy(ile:number) {
     for(let i = 0; i < ile; i++) {
         pos3 -=5
         pos3 = Math.max(pos3, 155)
