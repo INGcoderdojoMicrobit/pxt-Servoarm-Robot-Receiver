@@ -5,7 +5,8 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "Servo": "github:waveshare/pxt-servo#v1.0.0"
+        "Servo": "github:waveshare/pxt-servo#v1.0.0",
+        "microphone": "*"
     },
     "files": [
         "README.md",
